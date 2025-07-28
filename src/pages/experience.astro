@@ -1,0 +1,95 @@
+---
+    import '../styles/main.css';
+    import Navigation from '../components/Navigation.astro';
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <h1>Experience</h1>
+        <Navigation />
+        <br>
+    </header>
+    <main>
+        <section>
+            <h2>Projects</h2>
+            <p>Here is a section highlighting previous and current projects.</p>
+            <h3>Project 1:</h3>
+            <p>This project involved writing a python program which performs "green" screen substitution for picture in picture content and color filtering.</p>
+            <figure>
+                <picture>
+                    <source 
+                        srcset="../_images/project-one-400.webp 400w,
+                                ../_images/project-one-800.webp 800w,
+                                ../_images/project-one-1200.webp 1200w"
+                        sizes="(max-width: 600px) 400px,
+                                (max-width: 1000px) 800px,
+                                1200px"
+                        type="image/webp"
+                    >
+                    <img src="../_images/project-one.jpg" 
+                    alt=
+                    "An image of a triceratops and velociraptor plush substituted inside the interior of a car with a red interior, 
+                    inverted vertically with a purple filter on top."
+                    >
+                </picture>
+                <figcaption>Fall 2023.</figcaption>
+            </figure>
+            <h3>Project 2:</h3>
+            <p>This project involved writing a C++ program which performs text compression and uncompression by encoding text to binary and decoding the binary to text.</p>
+            <figure>
+                <picture>
+                    <source 
+                        srcset="../_images/project-two-400.webp 400w,
+                                ../_images/project-two-800.webp 800w,
+                                ../_images/project-two-1200.webp 1200w"
+                        sizes="(max-width: 600px) 400px,
+                                (max-width: 1000px) 800px,
+                                1200px"
+                        type="image/webp"
+                    >
+                    <img src="../_images/project-two.png"
+                    alt=
+                    "An image of a file holding a DNA sequence on the left, uncompressed, 
+                    then an image of the compressed information in binary, 
+                    then an image of the restored information post uncompression on the right."
+                    loading="lazy"
+                    >
+                </picture>
+                <figcaption>Spring 2025.</figcaption>
+            </figure>
+            <h3>Project 3:</h3>
+            <p>This project involves writing a C++ program using SFML, super fast media library, to program to two dimensional RPG. Still work in progress.</p>
+            <figure>
+                <picture>
+                    <source 
+                        srcset="../_images/project-three-400.webp 400w,
+                                ../_images/project-three-800.webp 800w,
+                                ../_images/project-three-1200.webp 1200w"
+                        sizes="(max-width: 600px) 400px,
+                                (max-width: 1000px) 800px,
+                                1200px"
+                        type="image/webp"
+                    >
+                    <img src="../_images/project-three.webp" 
+                    alt="image of a two dimensional RPG with a character sprite swinging their sword with blue mountains in the background." loading="lazy">
+                </picture>
+                <figcaption>Summer 2025.</figcaption>
+            </figure>
+        </section>
+    </main>
+    <footer>
+        <address>
+            Jonathan Osorio <br>
+            jonathannoj0186@gmail.com <br>
+            619.885.6584
+        </address>
+    </footer>
+</body>
+</html>

@@ -1,85 +1,193 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-import '../styles/global.css';
-const pageTitle = "About Me";
-
-const identity = {
-    name: "John Doe",
-    country: "Roblox",
-    occupation: "Hacker",
-    hobbies: [
-        "Hacking",
-        "Roblox",
-        "Astro",
-    ]
-}
-
-const skills = ["hacking", "programming"];
-
-const happy = true;
-const finished = false;
-const goal = 3;
-
-const skillColor = "navy";
-const fontWeight = "bold";
-const textCase = "uppercase";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+    import '../styles/main.css';
+    import Navigation from '../components/Navigation.astro';
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} >
-    <title>{pageTitle}</title>
-    <style define:vars={{skillColor, fontWeight, textCase}}>
-      h1 {
-        color: purple;
-        font-size: 4rem;
-      }
-      .skill {
-        color: var(--skillColor);
-        font-weight: var(--fontWeight);
-        text-transform: var(--textCase);
-    }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .books {
+            background-color: var(--content-background-color);
+            display: flex;
+            flex-direction: row;
+            padding: 1rem;
+        }
+        .film-grid {
+            background-color: var(--content-background-color);
+            display: flex;
+            flex-direction: row;
+            padding: 2rem;
+        }
+        @media (max-width: 825px) {
+            .film-grid {
+                flex-direction: column;
+            }
+            film-cover, film-list {
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+        }
     </style>
-  </head>
-  <body>
-    <a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/blog">Blog</a>
-    <h1>{pageTitle}</h1>
-    <p>This is a simple example of an Astro page.</p>
-    {happy && <p>I am happy to be learning Astro!</p>}
-    <ul>
-      <li><a href="/posts/post-1/">Post 1</a></li>
-      <li><a href="/posts/post-2/">Post 2</a></li>
-      <li><a href="/posts/post-3/">Post 3</a></li>
-    </ul>
-    <p>Here some interesting information about me.</p>
-    {finished && <p>I finished this tutorial!</p>}
-    <ul>
-        <li>My name is {identity.name}.</li>
-        <li>I live in {identity.country} where I'm a {identity.occupation}.</li>
-        {
-            identity.hobbies.map((hobby) => (
-                <li>I like {hobby}.</li>
-            ))
-        }
-    </ul>
-    <p>My skills:</p>
-    <ul>
-        {
-            skills.map((skill) => (
-                <li class="skill">{skill}.</li>
-            ))
-        }
-    </ul>
-    {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+</head>
 
-  </body>
+<body>
+    <header>
+        <h1>About Me</h1>
+        <Navigation />
+        <br>
+    </header>
+    <main>
+        <section>
+            <p>I'm Jonathan Osorio. I'm from San Diego and I'm currently a student at the University of California, San Diego.</p>
+            <picture>
+                <source 
+                    srcset="../_images/up-400.webp 400w,
+                            ../_images/up-800.webp 800w,
+                            ../_images/up-1200.webp 1200w"
+                    sizes="(max-width: 600px) 400px,
+                            (max-width: 1000px) 800px,
+                            1200px"
+                    type="image/webp"
+                >
+                <img src="/_images/up.jpg" alt="An image of the Fallen Star at the University of California, San Diego directly from below.">
+            </picture>
+        </section>
+        <section class="hobbies">
+            <h2>Hobbies</h2>
+
+            <h3>Reading</h3>
+            <p>I like reading books too. I'm finished reading <cite>The Extra Ordinary Dissapointments of Leopold Berry</cite> and now I'm reading <cite>Dune: The Graphic Novel</cite>. Someday, I too hope to publish my own novel.</p>    
+            <section class="books">
+                <picture class="books">
+                    <source 
+                        srcset="/_images/dune-400.webp 400w,
+                                /_images/dune-800.webp 800w,
+                                /_images/dune-1200.webp 1200w"
+                        sizes="(max-width: 600px) 400px,
+                                (max-width: 1000px) 800px,
+                                1200px"
+                        type="image/webp"
+                    >
+                    <img src="/_images/dune.jpg" alt=
+                    "Dune: The Graphic Novel Cover. Cloked people stand at the edge of a cliff with two suns in the background and an orange fog covers the page." 
+                    loading="lazy">
+                </picture>
+                <picture class="books">
+                    <source 
+                        srcset="/_images/leopold-400.webp 400w,
+                                /_images/leopold-800.webp 800w,
+                                /_images/leopold-1200.webp 1200w"
+                        sizes="(max-width: 600px) 400px,
+                                (max-width: 1000px) 800px,
+                                1200px"
+                        type="image/webp"
+                    >
+                    <img src="/_images/leopold.jpg" alt=
+                    "The Extra Ordinary Dissapointments of Leopold Berry Cover.
+                    A robotic wolf with red eyes looks outward to the viewer." 
+                    loading="lazy">
+                </picture>
+            </section>
+
+            <h3>Chess</h3>
+            <p>I'm a dedicated chess player. In high school, I was part of the chess club, and now I study and I play online. I'm currently learning the Catalan opening for white, and I'm looking for a new opening for black</p>
+            <picture>
+                <source 
+                    srcset="/_images/chess-400.webp 400w,
+                            /_images/chess-800.webp 800w,
+                            /_images/chess-1200.webp 1200w"
+                    sizes="(max-width: 600px) 400px,
+                            (max-width: 1000px) 800px,
+                            1200px"
+                    type="image/webp"
+                >
+                <img src="/_images/chess.jpg" alt="image of a chess board with pieces on the side from an inner drawer within the board." loading="lazy">
+            </picture>
+
+            <h3>Violin</h3>
+            <section>
+                <p>I'm a violin player too. One of my greatest experiences was playing in orchestra during high school. I even performed at the Rady Shell my last year in orchestra.</p>
+                <picture>
+                    <source 
+                        srcset="/_images/violin-400.webp 400w,
+                                /_images/violin-800.webp 800w,
+                                /_images/violin-1200.webp 1200w"
+                        sizes="(max-width: 600px) 400px,
+                                (max-width: 1000px) 800px,
+                                1200px"
+                        type="image/webp"
+                    >
+                    <img src="/_images/violin.jpg" alt="image of a violin lying on top of music." loading="lazy">
+                </picture>
+            </section>
+        </section>
+         
+        <section>
+            <h2>Interests</h2>
+
+            <h3>Planet of the Apes</h3>
+            <p>My favorite film franchise is Planet of the Apes.</p>
+            <section class="film-grid">
+                <film-list>
+                    <p>Here is a list of the films in the original franchise.</p>
+                    <ul>
+                        <li><pre>                Planet of the Apes.</pre></li>
+                        <li><pre>    Beneath the Planet of the Apes.</pre></li>
+                        <li><pre>Escape from the Planet of the Apes.</pre></li>
+                        <li><pre>Conquest of the Planet of the Apes.</pre></li>
+                        <li><pre> Battle for the Planet of the Apes.</pre></li>
+                    </ul> 
+                </film-list>
+  
+                <film-cover>
+                    <figure>
+                        <picture class="planetoftheapesfilms" id="cover">
+                            <source 
+                                srcset="/_images/conquest-400.webp 400w,
+                                        /_images/conquest-800.webp 800w"
+                                sizes="(max-width: 600px) 400px,
+                                        (max-width: 1000px) 800px,
+                                        1200px"
+                                type="image/webp"
+                            >
+                            <img src="/_images/conquest.png" 
+                            alt=
+                            "The film cover, saturated in red, for the film: Conquest of the Planet of the Apes.
+                            Ceaser leads armed apes in a revolution.
+                            The revolt has begun!" 
+                            loading="lazy">
+                        </picture>
+                        <figcaption>
+                            <cite>Photo by Phantom City Creative - &copy; Mondo</cite>
+                        </figcaption>
+                    </figure>
+                </film-cover>
+
+            </section>
+
+            <h3>My favorite Planet of the Apes film.</h3>
+            <p>My favorite film from the original Planet of the Apes franchise is <cite>Conquest of the Planet of the Apes</cite>. My favorite quote from the film is:</p>
+            <audio controls src="/_audio/ceaser.mp3"></audio>
+            <blockquote>
+                Where there is fire, there is smoke. And, in that smoke, from this day forward, my people will crouch and conspire and plot and plan for the inevitable day of man's downfall.
+                The day when he finally and self-destructively turns his weapons against his own kind. The day of the writing in the sky, when your cities lie buried under radioactive rubble.
+                When the sea is a dead sea and the land is a wasteland out of which I will lead my people from their captivity. And we shall build our own cities in which there will be no place for humans,
+                except to serve our ends. And we shall found our own armies, our own religion, our own dynasty! And that day is upon you... now!
+            </blockquote>
+        </section>
+        
+    </main>
+    <footer>
+        <address>
+            Jonathan Osorio <br>
+            jonathannoj0186@gmail.com <br>
+            619.885.6584
+        </address>
+    </footer>
+</body>
 </html>

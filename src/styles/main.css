@@ -1,0 +1,126 @@
+@font-face {
+    font-family: "Merienda";
+    src: url(/_fonts/Merienda-VariableFont_wght.ttf);
+}
+
+:root {
+    --transition-duration: 0.3s;
+    --transition-timing: ease-in;
+    --padding: 2rem;
+    --font-size: clamp(0.6rem, 2vw, 1.3rem);
+}
+:root {
+    --background-color: purple;
+    --main-text-color: white;
+    --main-text-color-link: white;
+    --main-text-color-hover: aqua;
+    --heading-background-color: white;
+    --heading-text-color: black;
+    --header-background-color: black;
+    --footer-background-color: black;
+    --header-text-color: white;
+    --footer-text-color: white;
+    --content-background-color: black;
+}
+.light {
+    --background-color: white;
+    --main-text-color: black;
+    --main-text-color-link: aqua;
+    --main-text-color-hover: yellow;
+    --heading-background-color: black;
+    --heading-text-color: white;
+    --header-background-color: blue;
+    --footer-background-color: blue;
+    --header-text-color: white;
+    --footer-text-color: white;
+    --content-background-color: black;
+    .film-grid {
+        color: white;
+    }
+}
+.dark {
+    --background-color: black;
+    --main-text-color: white;
+    --main-text-color-link: #3333FF;
+    --main-text-color-hover: #ffffff;
+    --heading-background-color: white;
+    --heading-text-color: black;
+    --header-background-color: #3cc8aa;
+    --footer-background-color: #3cc8aa;
+    --header-text-color: white;
+    --footer-text-color: black;
+    --content-background-color: white;
+    .film-grid {
+        color: black;
+    }
+}
+* {
+    font-family: "Merienda", sans-serif;
+}
+body {
+    background-color: var(--background-color);
+    color: var(--main-text-color);
+    font-size: var(--font-size);
+    header, main, footer {
+        padding: var(--padding);
+    }
+    h1, h2, h3 {
+		background-color: var(--heading-background-color);
+		color: var(--heading-text-color);
+		padding: 0.1rem;
+		text-align: center;
+    }
+    display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr auto;
+	grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    select {
+        font-size: var(--font-size);
+    }
+}
+header {
+    
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+	text-align: center;
+    nav {
+        a {
+            color: var(--main-text-color-link);
+            &:hover {
+                color: var(--main-text-color-hover);
+                transform: scale(1.03);
+                transition-property: all;
+                transition-duration: var(--transition-duration);
+                transition-timing-function: var(--transition-timing);
+            }
+        }
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    grid-area: header;
+}
+main {
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    picture {
+        display: flex;
+        justify-content: center;
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+	grid-area: main;
+}
+footer {
+	background: var(--footer-background-color);
+	color: var(--footer-text-color);
+	text-align: center;
+	grid-area: footer;
+}

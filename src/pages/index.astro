@@ -1,30 +1,63 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-import '../styles/global.css';
-const pageTitle = "Home Page";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+    import '../styles/main.css';
+    import Navigation from '../components/Navigation.astro';
 ---
 
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} >
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-	<a href="/">Home</a>
-    <a href="/about">About</a>
-    <a href="/blog">Blog</a>
-	<h1>{pageTitle}</h1>
-    <ul>
-      <li><a href="/posts/post-1/">Post 1</a></li>
-      <li><a href="/posts/post-2/">Post 2</a></li>
-      <li><a href="/posts/post-3/">Post 3</a></li>
-    </ul>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        img {
+            display: none;
+        }
+    </style>
+</head>
+<body >
+    <header class="hero">
+        <h1>Home</h1>
+        <Navigation />
+        <br>
+    </header>
+    <main>
+        <section>
+            <h2>About Me.</h3>
+            <p>Here you may learn more about me. I'm interested in various topics.</p>
+            <picture class="pic">
+                <source 
+                    srcset="../_images/justice-400.webp 400w,
+                            ../_images/justice-800.webp 800w,
+                            ../_images/justice-1200.webp 1200w"
+                    sizes="(max-width: 600px) 400px,
+                            (max-width: 1000px) 800px,
+                            1200px"
+                    type="image/webp"
+                >
+                <img src="../_images/justice.jpg" 
+                alt="image of the word justice in red letter on Bruce Nauman's Vices and Virtues at the University of California, San Diego.">
+            </picture>
+        </section>
+        <section>
+            <h2>Contact Information.</h2>
+            <p>Here you may contact me more directly if you have any questions.</p>
+        </section>
+        <section>
+            <h2>Experience.</h2>
+            <p>Here is a section highlighting previous projects and things I'm working on.</p>
+            <picture class="pic">
+                <source type="image/png" srcset="../_images/project-three.png">
+                <img src="../_images/project-three.png" 
+                alt="image of a two dimensional RPG with a character sprite swinging their sword with blue mountains in the background." loading="lazy">
+            </picture>
+        </section>
+    </main>
+    <footer>
+        <address>
+            Jonathan Osorio <br>
+            jonathannoj0186@gmail.com <br>
+            619.885.6584
+        </address>
+    </footer>
+</body>
 </html>
